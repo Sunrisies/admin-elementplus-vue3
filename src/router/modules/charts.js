@@ -1,5 +1,7 @@
 /** When your routing table is too long, you can split it into small modules**/
 
+// 图标页面
+
 import Layout from '@/layout'
 
 const chartsRouter = {

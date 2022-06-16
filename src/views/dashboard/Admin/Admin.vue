@@ -91,6 +91,7 @@ const state = reactive({
   lineChartData: lineChart.newVisitis
 })
 
+//点击首页的图片
 const handleSetLineChartData = (type) => {
   state.lineChartData = lineChartData[type]
 }

@@ -2,36 +2,42 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/layout'
 
 /* Router Modules */
+  //图标
 import chartsRouter from './modules/charts'
+  //使用例子
 import useExample from './modules/useExample'
 
 export const constantRoutes = [
-  {
-    path: '/redirect',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect')
-      }
-    ]
-  },
+  // {
+  //   path: '/redirect',
+  //   component: Layout,
+  //   hidden: true,
+  //   children: [
+  //     {
+  //       path: '/redirect/:path(.*)',
+  //       component: () => import('@/views/redirect')
+  //     }
+  //   ]
+  // },
+  // 登入
   {
     path: '/login',
     component: () => import('@/views/login/Login.vue'),
     hidden: true
   },
+  // 404
   {
     path: '/404',
     component: () => import('@/views/error-page/404.vue'),
     hidden: true
   },
+  // 401
   {
     path: '/401',
     component: () => import('@/views/error-page/401.vue'),
     hidden: true
   },
+  //首页
   {
     path: '/',
     component: Layout,
@@ -42,10 +48,12 @@ export const constantRoutes = [
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         //using el svg icon, the elSvgIcon first when at the same time using elSvgIcon and icon
+        //使用el svg图标时，首先使用elSvgIcon，同时使用elSvgIcon和图标
         meta: { title: 'Dashboard', elSvgIcon: 'Fold' }
       }
     ]
   },
+  //设置文件测试
   {
     path: '/setting-switch',
     component: Layout,
@@ -58,6 +66,7 @@ export const constantRoutes = [
       }
     ]
   },
+  //引导页
   {
     path: '/guide',
     component: Layout,
@@ -70,6 +79,7 @@ export const constantRoutes = [
       }
     ]
   },
+  //错误日志页
   {
     path: '/error-log',
     component: Layout,
@@ -91,6 +101,7 @@ export const constantRoutes = [
       }
     ]
   },
+  //准确无误
   {
     path: '/nested',
     component: Layout,
@@ -149,6 +160,7 @@ export const constantRoutes = [
       }
     ]
   },
+  //外链
   {
     path: '/external-link',
     component: Layout,
@@ -159,11 +171,14 @@ export const constantRoutes = [
       }
     ]
   },
+  //图标
   chartsRouter,
+  //增删改查
   {
     path: '/crud',
     component: Layout,
     meta: { title: 'CRUD', icon: 'guide' },
+    // 你可以设置 alwaysShow: true，这样它就会忽略之前定义的规则，一直显示根路由
     alwaysShow: true,
     children: [
       {
@@ -186,6 +201,7 @@ export const constantRoutes = [
       }
     ]
   },
+  //写法案例
   {
     path: '/writing-demo',
     component: Layout,
@@ -281,7 +297,9 @@ export const constantRoutes = [
       }
     ]
   },
+  //使用例子
   useExample,
+  //自定义指令
   {
     path: '/directive',
     component: Layout,
@@ -323,8 +341,8 @@ export const constantRoutes = [
 ]
 
 /**
- * asyncRoutes
- * the routes that need to be dynamically loaded based on user roles
+ * asyncRoutes异步路由
+ * the routes that need to be dynamically loaded based on user roles需要根据用户角色动态加载的路由
  */
 export const asyncRoutes = [
   {
